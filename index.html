@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar4</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+#toggle{
+    position: fixed;
+    top: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background: green;
+cursor: pointer;
+justify-content: center;
+display: flex;
+align-items: center;
+}
+
+#toggle::before{
+    content: "";
+position: absolute;
+width: 20px;
+height: 2px;
+background-color: skyblue;
+transition: 0.5s;
+transform: translateY(-5px);
+
+}
+#toggle::after{
+    content: "";
+position: absolute;
+width: 20px;
+height: 2px;
+background-color: skyblue;
+transition: 0.5s;
+transform: translateY(5px);
+
+}
+#toggle.active::before{
+    
+    background-color: rgb(76, 20, 165);
+    transition: 0.5sec; 
+    transform: translateY(0) rotate(-45deg);
+}
+
+#toggle.active::after{
+    background-color: rgb(99, 31, 208);
+    transition: 0.5sec;
+    transform: translateY(0) rotate(45deg);
+}
+
+#sidebar{
+    position: fixed;
+    top: 5px;
+    left: -300px;
+    width: 200px;
+    min-height: 600vh;
+    background-color: red;
+    transform: 0.5sec
+    ;
+
+
+}
+#sidebar ul {position: relative;
+margin-top: 50px;
+}
+#sidebar ul li{
+    list-style: none;
+    display: inline-block;
+    width: 100px;
+    padding: 10px 40px;
+
+}
+#sidebar ul li :hover{
+    background-color: rgb(68, 5, 68);
+}
+#sidebar ul li a{
+    /* background-color: rgb(42, 42, 84); */
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    
+}
+#sidebar.active{
+left: 0px;
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="toggle">
+    <div id="sidebar">
+<ul class="items">
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">Home</a></li>
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">About</a></li>
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">Service</a></li>
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">Team</a></li>
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">Contact</a></li>
+    <li class="item"><i class="fa-solid fa-folder-open fa-bounce"></i><a href="#">Portfolio</a></li>
+</ul>
+
+
+    </div>    
+</div>
+    <script>
+let x = document.getElementById("toggle") 
+let y = document.getElementById("sidebar")
+x.onclick = function(){
+    x.classList.toggle("active")
+y.classList.toggle("active")
+
+}
+
+// for any where click remove   side navbar
+
+document.onclick = function(e){
+if(e.target.id !== "sidebar" && e.target.id !== "toggle"){
+    x.classList.remove("active")
+y.classList.remove("active")
+
+}
+        
+    }
+
+    </script>
+
+    
+</body>
+</html>
